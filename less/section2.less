@@ -1,0 +1,82 @@
+.section2 {
+    background: #fff;
+    h1 {
+        font-size: 50px;
+        margin: 1% auto;
+    }
+    .skill-ul {
+        height: 70%;
+        width: 100%;
+        margin: 1% auto;
+        overflow: hidden;
+        position: relative;
+        background: #fff;
+        .li2 {
+            top: 0;
+            left: 100%;
+            z-index: 1;
+        }
+        .li1{
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+        .skill-li {
+            position: absolute;
+            margin-top: 2%;
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            .skill-item {
+                float: left;
+                width: 30%;
+                margin-left: 2.5%;
+                margin-bottom: 3%;
+                img {
+                    width: 100%;
+                    padding: 3%;
+                }
+                .size-html5 {
+                    font-size: 200px;
+                    color: orangered;
+                    margin: 5% auto;
+                }
+                .size-css3 {
+                    margin: 5% auto;
+                    font-size: 200px;
+                    color: blue;
+                }
+            }
+            p{
+                font-size: 22px;
+            }
+            div:hover {
+                box-shadow: 1px 15px 15px rgba(0,0,0,0.1),
+                            -1px -1px 15px rgba(0,0,0,0.1);
+            }
+        }
+    }
+    .tip {
+        clear: both;
+        width: 10%;
+        margin: 3% auto 8%;
+        li {
+            float: left;
+        }
+        .tip-prev {
+            margin-right: 30px;
+            .tip-left {
+                font-size: 20px;
+                color: #8C8C8C;
+                cursor: pointer;
+            }
+        }
+        .tip-next {
+            .tip-right {
+                cursor: pointer;
+                font-size: 20px;
+                color: #8C8C8C;
+            }
+        }
+    }
+}
