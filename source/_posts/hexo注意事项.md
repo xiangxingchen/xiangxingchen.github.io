@@ -1,5 +1,5 @@
 ---
-title: hexo 注意事项
+title: hexo注意事项
 date: 2018-06-12 10:31:52
 tag: hexo
 ---
