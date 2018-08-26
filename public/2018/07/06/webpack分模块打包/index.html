@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Alan">
 <meta property="og:description" content="代码分离是 webpack 中最引人注目的特性之一。此特性能够把代码分离到不同的 bundle 中，然后可以按需加载或并行加载这些文件。代码分离可以用于获取更小的 bundle，以及控制资源加载优先级，如果使用合理，会极大影响加载时间。  有三种常用的代码分离方法：  入口起点：使用 entry 配置手动地分离代码。 防止重复：使用 CommonsChunkPlugin 去重和分离 chunk。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-29T12:11:11.671Z">
+<meta property="og:updated_time" content="2018-08-26T08:50:00.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack代码分离的三种常用方法">
 <meta name="twitter:description" content="代码分离是 webpack 中最引人注目的特性之一。此特性能够把代码分离到不同的 bundle 中，然后可以按需加载或并行加载这些文件。代码分离可以用于获取更小的 bundle，以及控制资源加载优先级，如果使用合理，会极大影响加载时间。  有三种常用的代码分离方法：  入口起点：使用 entry 配置手动地分离代码。 防止重复：使用 CommonsChunkPlugin 去重和分离 chunk。">
@@ -359,7 +359,8 @@
 <ul>
 <li><strong>入口起点</strong>：使用 entry 配置手动地分离代码。</li>
 <li><strong>防止重复</strong>：使用 CommonsChunkPlugin 去重和分离 chunk。</li>
-<li><strong>动态导入</strong>：通过模块的内联函数调用来分离代码。</li>
+<li><strong>动态导入</strong>：通过模块的内联函数调用来分离代码。<a id="more"></a>
+</li>
 </ul>
 <h1 id="入口起点"><a href="#入口起点" class="headerlink" title="入口起点"></a>入口起点</h1><p>这是迄今为止最简单、最直观的分离代码的方式。不过，这种方式手动配置较多，并有一些陷阱，我们将会解决这些问题。先来看看如何从 main bundle 中分离另一个模块：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// ./src/index.js</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">  _.join([<span class="string">'index'</span>, <span class="string">'module'</span>, <span class="string">'loaded!'</span>], <span class="string">' '</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ./src/page.js</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">  _.join([<span class="string">'Another'</span>, <span class="string">'module'</span>, <span class="string">'loaded!'</span>], <span class="string">' '</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    index: <span class="string">'./src/index.js'</span>,</span><br><span class="line">    another: <span class="string">'./src/page.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].bundle.js'</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -432,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/15/缓存策略三要素分解法/" rel="next" title="缓存策略三要素分解法(转0)">
-                <i class="fa fa-chevron-left"></i> 缓存策略三要素分解法(转0)
+              <a href="/2018/07/06/git实用命令/" rel="next" title="git实用命令">
+                <i class="fa fa-chevron-left"></i> git实用命令
               </a>
             
           </div>
@@ -442,8 +443,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/06/git实用命令/" rel="prev" title="git实用命令">
-                git实用命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/09/webpack打包原理/" rel="prev" title="webpack 文件打包机制">
+                webpack 文件打包机制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -532,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -554,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

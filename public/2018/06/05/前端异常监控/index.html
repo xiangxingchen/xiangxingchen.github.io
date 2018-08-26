@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Alan">
 <meta property="og:description" content="本文大致围绕下面几点展开讨论：  JS 处理异常的方式 上报方式 异常监控上报常见问题  JS 异常处理对于 Javascript 而言，我们面对的仅仅只是异常，异常的出现不会直接导致 JS 引擎崩溃，最多只会使当前执行的任务终止。  当前代码块将作为一个任务压入任务队列中，JS 线程会不断地从任务队列中提取任务执行。 当任务执行过程中出现异常，且异常没有捕获处理，则会一直沿着调用栈一层层向外抛出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-29T12:11:11.671Z">
+<meta property="og:updated_time" content="2018-08-26T08:50:24.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端异常监控">
 <meta name="twitter:description" content="本文大致围绕下面几点展开讨论：  JS 处理异常的方式 上报方式 异常监控上报常见问题  JS 异常处理对于 Javascript 而言，我们面对的仅仅只是异常，异常的出现不会直接导致 JS 引擎崩溃，最多只会使当前执行的任务终止。  当前代码块将作为一个任务压入任务队列中，JS 线程会不断地从任务队列中提取任务执行。 当任务执行过程中出现异常，且异常没有捕获处理，则会一直沿着调用栈一层层向外抛出">
@@ -362,9 +362,10 @@
 <ul>
 <li>当前代码块将作为一个任务压入任务队列中，JS 线程会不断地从任务队列中提取任务执行。</li>
 <li>当任务执行过程中出现异常，且异常没有捕获处理，则会一直沿着调用栈一层层向外抛出，最终终止当前任务的执行。</li>
-<li>JS 线程会继续从任务队列中提取下一个任务继续执行。</li>
-</ul>
+<li>JS 线程会继续从任务队列中提取下一个任务继续执行。<a id="more"></a>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  error</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">'永远不会执行'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">'我继续执行'</span>)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>在对脚本错误进行上报之前，我们需要对异常进行处理，程序需要先感知到脚本错误的发生，然后再谈异常上报。</p>
 <p>脚本错误一般分为两种：语法错误，运行时错误。</p>
 <p>下面就谈谈几种异常监控的处理方式：</p>
@@ -534,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -556,7 +557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

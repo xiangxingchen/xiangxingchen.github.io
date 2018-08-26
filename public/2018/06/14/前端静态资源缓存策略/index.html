@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="效果对于页面中静态资源（html/js/css/img/webfont），理想中的效果：  页面以最快的速度获取到所有必须静态资源，渲染飞快； 服务器上静态资源未更新时再次访问不请求服务器； 服务器上静态资源更新时请求服务器最新资源，加载又飞快。  总结下来也就是2个指标：  静态资源加载速度 页面渲染速度  性能优化原则及分类   优化方向 优化手段     请求数量 合并脚本和样式表，CSS">
+<meta name="description" content="效果对于页面中静态资源（html/js/css/img/webfont），理想中的效果：  页面以最快的速度获取到所有必须静态资源，渲染飞快； 服务器上静态资源未更新时再次访问不请求服务器； 服务器上静态资源更新时请求服务器最新资源，加载又飞快。  总结下来也就是2个指标：  静态资源加载速度 页面渲染速度">
 <meta name="keywords" content="缓存,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端静态资源缓存策略">
 <meta property="og:url" content="http://yoursite.com/2018/06/14/前端静态资源缓存策略/index.html">
 <meta property="og:site_name" content="Alan">
-<meta property="og:description" content="效果对于页面中静态资源（html/js/css/img/webfont），理想中的效果：  页面以最快的速度获取到所有必须静态资源，渲染飞快； 服务器上静态资源未更新时再次访问不请求服务器； 服务器上静态资源更新时请求服务器最新资源，加载又飞快。  总结下来也就是2个指标：  静态资源加载速度 页面渲染速度  性能优化原则及分类   优化方向 优化手段     请求数量 合并脚本和样式表，CSS">
+<meta property="og:description" content="效果对于页面中静态资源（html/js/css/img/webfont），理想中的效果：  页面以最快的速度获取到所有必须静态资源，渲染飞快； 服务器上静态资源未更新时再次访问不请求服务器； 服务器上静态资源更新时请求服务器最新资源，加载又飞快。  总结下来也就是2个指标：  静态资源加载速度 页面渲染速度">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/06/14/前端静态资源缓存策略/deploy.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/14/前端静态资源缓存策略/md5.png">
-<meta property="og:updated_time" content="2018-07-29T12:11:11.676Z">
+<meta property="og:updated_time" content="2018-08-26T08:50:37.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端静态资源缓存策略">
-<meta name="twitter:description" content="效果对于页面中静态资源（html/js/css/img/webfont），理想中的效果：  页面以最快的速度获取到所有必须静态资源，渲染飞快； 服务器上静态资源未更新时再次访问不请求服务器； 服务器上静态资源更新时请求服务器最新资源，加载又飞快。  总结下来也就是2个指标：  静态资源加载速度 页面渲染速度  性能优化原则及分类   优化方向 优化手段     请求数量 合并脚本和样式表，CSS">
+<meta name="twitter:description" content="效果对于页面中静态资源（html/js/css/img/webfont），理想中的效果：  页面以最快的速度获取到所有必须静态资源，渲染飞快； 服务器上静态资源未更新时再次访问不请求服务器； 服务器上静态资源更新时请求服务器最新资源，加载又飞快。  总结下来也就是2个指标：  静态资源加载速度 页面渲染速度">
 <meta name="twitter:image" content="http://yoursite.com/2018/06/14/前端静态资源缓存策略/deploy.png">
 
 
@@ -342,38 +342,9 @@
 <p>总结下来也就是2个指标：</p>
 <ul>
 <li>静态资源加载速度</li>
-<li>页面渲染速度</li>
+<li>页面渲染速度<a id="more"></a>
+<h1 id="性能优化原则及分类"><a href="#性能优化原则及分类" class="headerlink" title="性能优化原则及分类"></a>性能优化原则及分类</h1>| 优化方向 | 优化手段 |<br>| - | - |<br>| 请求数量 | 合并脚本和样式表，CSS Sprites，拆分初始化负载，划分主域 |<br>| 请求带宽 | 开启GZip，精简JavaScript，移除重复脚本，图像优化 |<br>| 缓存利用 | 使用CDN，使用外部JavaScript和CSS，添加Expires头，减少DNS查找，配置ETag，使AjaX可缓存 |<br>| 页面结构 | 将样式表放在顶部，将脚本放在底部，尽早刷新文档的输出 |<br>| 代码校验 | 避免CSS表达式，避免重定向 |</li>
 </ul>
-<h1 id="性能优化原则及分类"><a href="#性能优化原则及分类" class="headerlink" title="性能优化原则及分类"></a>性能优化原则及分类</h1><table>
-<thead>
-<tr>
-<th>优化方向</th>
-<th>优化手段</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>请求数量</td>
-<td>合并脚本和样式表，CSS Sprites，拆分初始化负载，划分主域</td>
-</tr>
-<tr>
-<td>请求带宽</td>
-<td>开启GZip，精简JavaScript，移除重复脚本，图像优化</td>
-</tr>
-<tr>
-<td>缓存利用</td>
-<td>使用CDN，使用外部JavaScript和CSS，添加Expires头，减少DNS查找，配置ETag，使AjaX可缓存</td>
-</tr>
-<tr>
-<td>页面结构</td>
-<td>将样式表放在顶部，将脚本放在底部，尽早刷新文档的输出</td>
-</tr>
-<tr>
-<td>代码校验</td>
-<td>避免CSS表达式，避免重定向</td>
-</tr>
-</tbody>
-</table>
 <p>目前大多数前端团队可以利用 yui compressor 或者 google closure compiler 等压缩工具很容易做到 精简Javascript 这条原则；同样的，也可以使用图片压缩工具对图像进行压缩，实现 图像优化 原则。这两条原则是对单个资源的处理，因此不会引起任何工程方面的问题。很多团队也通过引入代码校验流程来确保实现 避免css表达式 和 避免重定向 原则。目前绝大多数互联网公司也已经开启了服务端的Gzip压缩，并使用CDN实现静态资源的缓存和快速访问；一些技术实力雄厚的前端团队甚至研发出了自动CSS Sprites工具，解决了CSS Sprites在工程维护方面的难题。使用“查找-替换”思路，我们似乎也可以很好的实现 划分主域 原则。</p>
 <h1 id="静态资源版本更新与缓存"><a href="#静态资源版本更新与缓存" class="headerlink" title="静态资源版本更新与缓存"></a>静态资源版本更新与缓存</h1><p>缓存利用分类中保留了 添加<code>Expires</code>头 和 配置<code>ETag</code> 两项。或许有些人会质疑，明明这两项只要配置了服务器的相关选项就可以实现，为什么说它们难以解决呢？确实，开启这两项很容易，但开启了缓存后，我们的项目就开始面临另一个挑战： 如何更新这些缓存？<br>相信大多数团队也找到了类似的答案，它和《高性能网站建设指南》关于“添加Expires头”所说的原则一样——修订文件名。即：</p>
 <blockquote>
@@ -548,7 +519,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -570,7 +541,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

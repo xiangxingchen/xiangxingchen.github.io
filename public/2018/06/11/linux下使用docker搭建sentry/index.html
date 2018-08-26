@@ -88,7 +88,7 @@
 <meta property="og:description" content="准备工作安装docker可以通过apt-get或者wget安装1$ wget -qO- https://get.docker.com/ | sh 通过docker –version可以查看版本号并确认是否安装成功。 安装docker-composeCompose是用于定义和运行复杂Docker应用的工具。你可以在一个文件中定义一个多容器的应用，然后使用一条命令来启动你的应用，然后所有相关的操作都会">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/06/11/linux下使用docker搭建sentry/11.png">
-<meta property="og:updated_time" content="2018-07-29T12:11:11.669Z">
+<meta property="og:updated_time" content="2018-08-26T08:49:54.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下使用docker搭建sentry">
 <meta name="twitter:description" content="准备工作安装docker可以通过apt-get或者wget安装1$ wget -qO- https://get.docker.com/ | sh 通过docker –version可以查看版本号并确认是否安装成功。 安装docker-composeCompose是用于定义和运行复杂Docker应用的工具。你可以在一个文件中定义一个多容器的应用，然后使用一条命令来启动你的应用，然后所有相关的操作都会">
@@ -335,7 +335,7 @@
         <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>可以通过apt-get或者wget安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure></p>
 <p>通过docker –version可以查看版本号并确认是否安装成功。</p>
 <h2 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h2><p>Compose是用于定义和运行复杂Docker应用的工具。你可以在一个文件中定义一个多容器的应用，然后使用一条命令来启动你的应用，然后所有相关的操作都会被自动完成。<br>通过curl从github上获取最新的版本，<strong>这个命令需要使用sudo -i切换到root用户</strong>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.9.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></p>
-<p>执行完成后通过<code>exit</code>退出root用户。<br>可以通过<code>docker-compose --version</code>查看版本号并确定是否安装成功。</p>
+<p>执行完成后通过<code>exit</code>退出root用户。<br>可以通过<code>docker-compose --version</code>查看版本号并确定是否安装成功。<br><a id="more"></a></p>
 <h1 id="正式搭建sentry"><a href="#正式搭建sentry" class="headerlink" title="正式搭建sentry"></a>正式搭建sentry</h1><h2 id="获取sentry"><a href="#获取sentry" class="headerlink" title="获取sentry"></a>获取sentry</h2><p>从github上可以获取最新的sentry。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/getsentry/onpremise.git</span><br></pre></td></tr></table></figure></p>
 <h2 id="搭建sentry"><a href="#搭建sentry" class="headerlink" title="搭建sentry"></a>搭建sentry</h2><p>第一步: 制作我们的本地数据库和sentry配置目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir  -p data/&#123;sentry,postgres&#125;</span><br></pre></td></tr></table></figure></p>
 <p>第二步: 生成一个密钥。将其作为SENTRY_SECRET_KEY添加到dock中的docker-compose.yml中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --rm web config generate-secret-key</span><br></pre></td></tr></table></figure></p>
@@ -480,7 +480,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -502,7 +502,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
