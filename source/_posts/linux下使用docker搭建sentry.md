@@ -20,7 +20,7 @@ chmod +x /usr/local/bin/docker-compose
 ```
 执行完成后通过`exit`退出root用户。
 可以通过`docker-compose --version`查看版本号并确定是否安装成功。
-
+<!-- more -->
 # 正式搭建sentry
 ## 获取sentry
 从github上可以获取最新的sentry。
